@@ -8,7 +8,6 @@ let defaultState = {
 };
 
 const ProductReducer = (state = defaultState, action) => {
-    console.log(action);
     switch(action.type){
         case FETCH_PRODUCTS_BEGIN:
             return {
@@ -33,18 +32,5 @@ const ProductReducer = (state = defaultState, action) => {
             return state;
     }
 };
-
-const fetchItems = () => {
-    fetch('https://discountdm.herokuapp.com/getItems', {
-         
-    })
-      .then((response) => {
-          var res = response.json();
-        })
-      .then((items) => {
-        return {storeItems: [items]};
-      });
-      console.log('fetch items');
-}
 
 export default ProductReducer;
