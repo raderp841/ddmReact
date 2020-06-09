@@ -12,7 +12,7 @@ const Cart = (state) => (
         {(state.CartReducer.cartItems != undefined && state.CartReducer.cartItems.count != 0) 
             ?
              state.CartReducer.cartItems.map((item) => (
-            <div key={item.id} className="col-md-6 col-lg-4 align-content-center">
+            <div key={item.id + Math.random()} className="col-md-6 col-lg-4 align-content-center">
                     <Product product={item} isCart={true}></Product>            
             </div>
             )

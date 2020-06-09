@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 let defaultState = {
     cartItems: []
 };
@@ -9,9 +10,16 @@ const CartReducer = (state = defaultState, action) => {
         case "ADD_ITEM":
             return {cartItems: [...state.cartItems, action.item]};
         case "REMOVE_ITEM":
-            return {cartItems: [...state.cartItems.filter(item => item.id != action.itemId)]}
+            let removed = false;
+            return {cartItems: [...state.cartItems.filter(item => {
+                if(!removed && (item.id == action.itemId)){
+                    removed = true;
+                    return;
+                }
+                return item;
+            })]};
         default:
-            return {cartItems: [...state.cartItems]}
+            return defaultState;
     }
 };
 

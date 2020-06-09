@@ -15,34 +15,6 @@ const App = () => (
 );
 
 
-// const countReducer = (state = [], action) => {
-//   switch(action.type){
-//     case "ADDITEM":
-//       return state + 1;
-//     case "REMOVEITEM":
-//       return state - 1;
-//     default:
-//       return state;
-//   }
-// };
-
-// let store = createStore(countReducer);
-
-
-
-// const mapStateToProps = state => {
-//   return {
-//     count: state
-//   };
-// };
-
-// const mapDispatchToProps = dispatch => {
-//   return{
-//     handleIncrementClick: () => dispatch({type: 'INCREMENT'}),
-//     handleDecrementClick: () => dispatch({type: 'DECREMENT'})
-//   }
-// };
-
 const Container = connect()(AppRouter);
 
 

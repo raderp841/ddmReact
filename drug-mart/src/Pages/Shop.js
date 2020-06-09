@@ -5,9 +5,11 @@ import Product from '../Components/Product'
 
 class Shop extends React.Component{
 
-    componentDidMount() {
+  componentWillMount() {
         this.props.dispatch(fetchProducts());
       }
+
+      
 
 
     render(){

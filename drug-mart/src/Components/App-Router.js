@@ -4,13 +4,13 @@ import {About} from '../Pages/About';
 import ConnectedCart from '../Pages/Cart';
 import {Contact} from '../Pages/Contact';
 import ConnectedShop from '../Pages/Shop';
-import Header from './Header';
+import ConnectedHeader from './Header';
 
 
 export const AppRouter = () => (
     <div>
         <Router>
-            <Header />
+            <ConnectedHeader />
             <Switch>
                 <div className="container">
                     <Route exact path="/" component={ConnectedShop} />
