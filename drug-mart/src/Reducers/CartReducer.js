@@ -25,7 +25,6 @@ const CartReducer = (state = defaultState, action) => {
             return {cartItems: filteredItems};
 
         case SET_CART_ITEMS:
-            console.log(action);
             return {cartItems: action.payload};
         default:
             return defaultState;

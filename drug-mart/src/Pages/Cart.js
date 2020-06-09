@@ -10,11 +10,7 @@ class Cart extends React.Component{
     componentDidMount(){
         let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
         if(cartItems === undefined || cartItems.length == 0){
-            console.log('NO ITEMS');
-            console.log(cartItems);
         }else{
-            console.log('items in storage')
-            console.log(cartItems);
             this.props.handleSetCartItems(cartItems);
         }
     }
