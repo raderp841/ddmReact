@@ -1,5 +1,5 @@
 import React from 'react';
-import {FETCH_PRODUCTS_BEGIN, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_FAILURE} from '../Actions/productActions';
+import {FETCH_PRODUCTS_BEGIN, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_FAILURE, SET_PRODUCTS, setProducts} from '../Actions/productActions';
 
 let defaultState = {
     items: [],
@@ -16,6 +16,7 @@ const ProductReducer = (state = defaultState, action) => {
                 error: null
             };
         case FETCH_PRODUCTS_SUCCESS:
+            localStorage.setItem('shopItems', JSON.stringify(action.payload.products));
             return {
                 ...state,
                 loading: false,
@@ -28,6 +29,12 @@ const ProductReducer = (state = defaultState, action) => {
                 error: action.payload.error,
                 items: []
               };
+        case SET_PRODUCTS:
+            return {
+                ...state,
+                loading: false,
+                items: action.payload.products
+            }
         default:
             return state;
     }

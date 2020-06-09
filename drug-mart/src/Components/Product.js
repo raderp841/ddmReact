@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addItem} from '../Actions/ADD_ITEM';
-import {removeItem} from '../Actions/REMOVE_ITEM';
+import {addItem} from '../Actions/cartActions';
+import {removeItem} from '../Actions/cartActions';
 
 
 class Product extends React.Component{

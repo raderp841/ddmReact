@@ -1,29 +1,45 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {removeItem} from '../Actions/REMOVE_ITEM'
-import Product from '../Components/Product'
+import {removeItem} from '../Actions/cartActions';
+import Product from '../Components/Product';
+import {setCartItems} from '../Actions/cartActions';
 
 let total = 0.0;
+class Cart extends React.Component{
 
-const Cart = (state) => (
-    <div>
-        <p>Here is your cart</p>
-        <div className="row text-center">
-        {(state.CartReducer.cartItems != undefined && state.CartReducer.cartItems.count != 0) 
-            ?
-             state.CartReducer.cartItems.map((item) => (
-            <div key={item.id + Math.random()} className="col-md-6 col-lg-4 align-content-center">
-                    <Product product={item} isCart={true}></Product>            
+    componentDidMount(){
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        if(cartItems === undefined || cartItems.length == 0){
+            console.log('NO ITEMS');
+            console.log(cartItems);
+        }else{
+            console.log('items in storage')
+            console.log(cartItems);
+            this.props.handleSetCartItems(cartItems);
+        }
+    }
+    
+    render(){
+        return (
+            <div>
+                <p>Here is your cart</p>
+                <div className="row text-center">
+                {(this.props.CartReducer.cartItems != undefined && this.props.CartReducer.cartItems.count != 0) 
+                    ?
+                     this.props.CartReducer.cartItems.map((item) => (
+                    <div key={item.id + Math.random()} className="col-md-6 col-lg-4 align-content-center">
+                            <Product product={item} isCart={true}></Product>            
+                    </div>))
+                    :
+                     <p>You have no items in your cart</p>}
+                </div>
+                <hr />
+                <h4>Total: ${getTotal(this.props.CartReducer.cartItems)}</h4>
             </div>
-            )
-            )
-            :
-             <p>You have no items in your cart</p>}
-        </div>
-        <hr />
-        <h4>Total: ${getTotal(state.CartReducer.cartItems)}</h4>
-    </div>
-);
+        );
+    }
+}
+
 
 const getTotal = (items) => {
     let total = 0;
@@ -43,7 +59,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleRemoveItem: itemId => dispatch(removeItem(itemId))
+        handleRemoveItem: itemId => dispatch(removeItem(itemId)),
+        handleSetCartItems: items => dispatch(setCartItems(items))
       };
 };
 

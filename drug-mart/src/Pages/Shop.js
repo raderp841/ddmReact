@@ -1,16 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchProducts} from '../Actions/productActions';
+import {fetchProducts, setProducts} from '../Actions/productActions';
 import Product from '../Components/Product'
 
 class Shop extends React.Component{
 
-  componentWillMount() {
-        this.props.dispatch(fetchProducts());
+    componentDidMount() {
+        
+        let products = JSON.parse(localStorage.getItem('shopItems')) || [];
+        if(products === undefined || products.length == 0){
+          this.props.dispatch(fetchProducts());
+        }else{
+          this.props.dispatch(setProducts(products));
+        }
       }
-
-      
-
 
     render(){
         const { error, loading, products } = this.props;
