@@ -18,7 +18,7 @@ class Cart extends React.Component{
             <div>
                 <p>Here is your cart</p>
                 <div className="row text-center">
-                {(this.props.CartReducer.cartItems != undefined && this.props.CartReducer.cartItems.count != 0) 
+                {(this.props.CartReducer.cartItems !== undefined && this.props.CartReducer.cartItems.length !== 0) 
                     ?
                      this.props.CartReducer.cartItems.map((item) => (
                     <div key={item.id + Math.random()} className="col-md-6 col-lg-4 align-content-center">

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import CartCounter from './CartCounter';
 import { logoutUser } from '../Actions/userActions';
+import { setCartItems } from '../Actions/cartActions';
 
 const Header = (props) => (
     (
@@ -60,7 +61,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    handleLogout: () => dispatch(logoutUser())
+    handleLogout: () => {
+        dispatch(logoutUser());
+        dispatch(setCartItems([]));
+    }
 });
 
 const ConnectedHeader = connect(mapStateToProps, mapDispatchToProps)(Header);

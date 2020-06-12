@@ -28,7 +28,7 @@ const CartReducer = (state = defaultState, action) => {
             return {cartItems: filteredItems};
 
         case SET_CART_ITEMS:
-            return {cartItems: action.payload};
+            return {cartItems: action.payload.items};
 
         case FETCH_ITEMS_BEGIN:
             return{

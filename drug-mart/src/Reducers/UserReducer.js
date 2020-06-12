@@ -39,8 +39,9 @@ const UserReducer = (state = defaultState, action) => {
             return {state};
         
         case LOGOUT_USER:
+            
             localStorage.removeItem('userId');
-            return {defaultState};
+            return {undefined};
 
         default:
             return state;

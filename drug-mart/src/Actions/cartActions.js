@@ -5,6 +5,11 @@ export const FETCH_ITEMS_BEGIN = 'FETCH_ITEMS_BEGIN';
 export const FETCH_ITEMS_FAILURE = 'FETCH_ITEMS_FAILURE';
 export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS';
 
+export const setCartItems = items => ({
+    type: SET_CART_ITEMS,
+    payload: {items}
+})
+
 export const removeItem = userItemId => ({
     type: REMOVE_ITEM,
     userItemId
