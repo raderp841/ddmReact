@@ -27,8 +27,6 @@ export function fetchProducts() {
     return dispatch => {
       dispatch(fetchProductsBegin());
 
- 
-    // return fetch("https://discountdm.herokuapp.com/getItems")
      return fetch("https://discountdm.herokuapp.com/getItems")
         .then(handleErrors)
         .then(res => res.json())

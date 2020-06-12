@@ -15,7 +15,7 @@ export const AppRouter = () => (
             <ConnectedHeader />
             <Switch>
                 <div className="container">
-                    <Route exact path="/" component={ConnectedShop} />
+                    <Route exact path="/ddmReact" component={ConnectedShop} />
                     <Route exact path="/cart" component={ConnectedCart} />
                     <Route exact path="/about" component={About} />
                     <Route exact path="/contact" component={Contact} />

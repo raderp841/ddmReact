@@ -44,8 +44,6 @@ export const loginUser = (username, password) => {
     return dispatch => {
         dispatch(loginUserBegin());
   
-   
-      // return fetch("https://discountdm.herokuapp.com/loginUser")
        return fetch("https://discountdm.herokuapp.com/loginUser", {
            headers: {
                'USERNAME': username,
@@ -66,7 +64,6 @@ export const registerUser = (username, password) => {
     return dispatch => {
         dispatch(registerUserBegin());
 
-        // return fetch("https://discountdm.herokuapp.com/registerUser")
         return fetch("https://discountdm.herokuapp.com/registerUser", {
             headers: {
                 'USERNAME': username,

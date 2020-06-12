@@ -7,7 +7,7 @@ let isLoggedIn;
 
 class Shop extends React.Component{
 
-    componentWillMount() {
+    componentDidMount() {
         
         let products = JSON.parse(localStorage.getItem('shopItems')) || [];
         if(products === undefined || products.length == 0){
@@ -18,6 +18,7 @@ class Shop extends React.Component{
 
         if(this.props.user !== undefined && this.props.user.id !== -1){
           isLoggedIn = true;
+
         }else{
            isLoggedIn = false;
         }
@@ -52,7 +53,8 @@ const mapStateToProps = state => ({
     products: state.ProductReducer.items,
     loading: state.ProductReducer.loading,
     error: state.ProductReducer.error,
-    user: state.UserReducer.user
+    user: state.UserReducer.user,
+    cartItems: state.CartReducer.cartItems
   });
 
 const ConnectedShop = connect(mapStateToProps)(Shop);

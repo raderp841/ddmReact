@@ -5,11 +5,6 @@ export const FETCH_ITEMS_BEGIN = 'FETCH_ITEMS_BEGIN';
 export const FETCH_ITEMS_FAILURE = 'FETCH_ITEMS_FAILURE';
 export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS';
 
-export const setCartItems = items => ({
-    type: SET_CART_ITEMS,
-    payload: items
-});
-
 export const removeItem = userItemId => ({
     type: REMOVE_ITEM,
     userItemId
@@ -38,7 +33,6 @@ export function fetchCartItems(userId) {
     return dispatch => {
       dispatch(fetchItemsBegin());
 
-    // return fetch("https://discountdm.herokuapp.com/getItems")
      return fetch("https://discountdm.herokuapp.com/getItemsForUser",{
          headers: {
              "USERID": userId
@@ -56,7 +50,7 @@ export function fetchCartItems(userId) {
 
   export function postAddItem(userId, item){
       return dispatch => {
-      // return fetch("https://discountdm.herokuapp.com/getItems")
+          
      return fetch("https://discountdm.herokuapp.com/addItem",{
          headers: {
              "USERID": userId,
@@ -77,9 +71,8 @@ export function fetchCartItems(userId) {
 
   export function putRemoveItem(userItemId){
     return dispatch => {
-        console.log(userItemId);
-    // return fetch("https://discountdm.herokuapp.com/removeItem")
-   return fetch("https://discountdm.herokuapp.com/removeItem",{
+
+        return fetch("https://discountdm.herokuapp.com/removeItem",{
        headers: {
            "ITEMID": userItemId
        }

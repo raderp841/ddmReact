@@ -42,7 +42,7 @@ class Register extends React.Component{
                         </form>
                         <div className="form-group row">
                             <button 
-                                className="btn btn-primary btn-block offset-sm-3 col-sm-6"
+                                className="btn btn-primary btn-block offset-5 col-2"
                                 onClick={() => {
                                     if(checkMatch(passwordElement.value, passwordConfirmElement.value)){
                                         areMatchingPasses = true;

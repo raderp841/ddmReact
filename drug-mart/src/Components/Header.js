@@ -23,11 +23,9 @@ const Header = (props) => (
                             <Link className="nav-link" to="/about">About</Link>
                         </li>
                         <li className="nav-item header-link">
-                            <Link className="nav-link" to="/cart">Cart <CartCounter counter={props.cartItems != undefined ? props.cartItems.length : 0}/></Link>
+                            <Link className="nav-link" to="/cart">Cart <CartCounter /></Link>
                         </li>
                     </ul>
-                    
-
                         {
                             props.user !== undefined && props.user.id !== -1
                              ? 
