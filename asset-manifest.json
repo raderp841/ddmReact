@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ddmReact/static/css/main.c5430f38.chunk.css",
-    "main.js": "/ddmReact/static/js/main.dd12a1e4.chunk.js",
-    "main.js.map": "/ddmReact/static/js/main.dd12a1e4.chunk.js.map",
+    "main.js": "/ddmReact/static/js/main.deb78b35.chunk.js",
+    "main.js.map": "/ddmReact/static/js/main.deb78b35.chunk.js.map",
     "runtime-main.js": "/ddmReact/static/js/runtime-main.fcbeef97.js",
     "runtime-main.js.map": "/ddmReact/static/js/runtime-main.fcbeef97.js.map",
     "static/css/2.829c9cb5.chunk.css": "/ddmReact/static/css/2.829c9cb5.chunk.css",
     "static/js/2.65a9e9e6.chunk.js": "/ddmReact/static/js/2.65a9e9e6.chunk.js",
     "static/js/2.65a9e9e6.chunk.js.map": "/ddmReact/static/js/2.65a9e9e6.chunk.js.map",
     "index.html": "/ddmReact/index.html",
-    "precache-manifest.947b144be726db49e76a01c474a6392a.js": "/ddmReact/precache-manifest.947b144be726db49e76a01c474a6392a.js",
+    "precache-manifest.a6e2dd0ed9beab62ea2f717f683b793c.js": "/ddmReact/precache-manifest.a6e2dd0ed9beab62ea2f717f683b793c.js",
     "service-worker.js": "/ddmReact/service-worker.js",
     "static/css/2.829c9cb5.chunk.css.map": "/ddmReact/static/css/2.829c9cb5.chunk.css.map",
     "static/css/main.c5430f38.chunk.css.map": "/ddmReact/static/css/main.c5430f38.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.829c9cb5.chunk.css",
     "static/js/2.65a9e9e6.chunk.js",
     "static/css/main.c5430f38.chunk.css",
-    "static/js/main.dd12a1e4.chunk.js"
+    "static/js/main.deb78b35.chunk.js"
   ]
 }
