@@ -1,15 +1,22 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addItem} from '../Actions/cartActions';
-import {removeItem} from '../Actions/cartActions';
+import {postAddItem, putRemoveItem} from '../Actions/cartActions';
 
+let isLoggedIn;
 
-class Product extends React.Component{
-
+class Product extends React.Component{  
+    
+    componentDidMount(){
+        if(this.props.UserReducer.user !== undefined && this.props.UserReducer.user.id !== -1){
+            isLoggedIn = true;
+        }else{
+            isLoggedIn = false;
+        }
+    }
         
     render(){
         return (
-            <div>
+            <div className="card h-100">
                 <div className="d-none success-added" id={"added-item-" + this.props.product.id}></div>
                 <img 
                     src={this.props.product.imgPath} 
@@ -28,7 +35,7 @@ class Product extends React.Component{
                     <button 
                         style={{margin: 10}}
                         className=" float-right mb3 btn btn-danger"
-                        onClick={() => this.props.handleRemoveItem(this.props.product.id)}
+                        onClick={() => this.props.handleRemoveItem(this.props.product.userItemId)}
                     >
                     Remove
                     </button>
@@ -37,9 +44,14 @@ class Product extends React.Component{
                         style={{margin: 10}}
                         id="product-add" 
                         className=" float-right mb3 btn btn-success" 
+                        disabled={!isLoggedIn}
                         onClick={() => {
-                            this.props.handleAddItem(this.props.product);
-                            addedItemMessage(this.props.product.name, this.props.product.id);
+                            if(!isLoggedIn){
+                                
+                            }else{
+                                this.props.handleAddItem(this.props.UserReducer.user.id ,this.props.product);
+                                addedItemMessage(this.props.product.name, this.props.product.id);
+                            }
                         }}
                     >
                     Add to cart
@@ -56,8 +68,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleAddItem: item => dispatch(addItem(item)),
-        handleRemoveItem: itemId => dispatch(removeItem(itemId))
+        handleAddItem: (userId, item) => dispatch(postAddItem(userId, item)),
+        handleRemoveItem: userItemId => dispatch(putRemoveItem(userItemId))
       };
 };
 

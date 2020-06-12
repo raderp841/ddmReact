@@ -27,7 +27,8 @@ export function fetchProducts() {
     return dispatch => {
       dispatch(fetchProductsBegin());
 
- //    return fetch("http://localhost:8080/getItems")
+ 
+    // return fetch("https://discountdm.herokuapp.com/getItems")
      return fetch("https://discountdm.herokuapp.com/getItems")
         .then(handleErrors)
         .then(res => res.json())

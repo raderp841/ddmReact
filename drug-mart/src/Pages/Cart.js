@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {removeItem} from '../Actions/cartActions';
+import {removeItem, fetchCartItems} from '../Actions/cartActions';
 import Product from '../Components/Product';
 import {setCartItems} from '../Actions/cartActions';
 
@@ -8,10 +8,8 @@ let total = 0.0;
 class Cart extends React.Component{
 
     componentDidMount(){
-        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-        if(cartItems === undefined || cartItems.length == 0){
-        }else{
-            this.props.handleSetCartItems(cartItems);
+        if(this.props.UserReducer.user !== undefined){
+        this.props.handleFetchCartItems(this.props.UserReducer.user.id);
         }
     }
     
@@ -56,7 +54,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
     return {
         handleRemoveItem: itemId => dispatch(removeItem(itemId)),
-        handleSetCartItems: items => dispatch(setCartItems(items))
+        handleFetchCartItems: userId => dispatch(fetchCartItems(userId))
       };
 };
 
